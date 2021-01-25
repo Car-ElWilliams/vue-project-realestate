@@ -69,10 +69,12 @@
 </template>
 
 <script>
+import fromZooplaJS from '../modules/zoopla.js'
 const axios = require('axios')
 export default {
   mounted() {
     this.getZoopolaData()
+    this.launchToVueX()
   },
   data() {
     return {
@@ -96,13 +98,15 @@ export default {
           'http://api.zoopla.co.uk/api/v1/property_listings.json?new_homes=yes&area=london&summarised=yes&api_key=nnc2mfhmmbngxyvgpmqy86nz'
         )
         .then(response => {
-          console.log(response)
           this.zooplaData.resultCount = response.data.result_count
         })
         .catch(error => {
           console.log(error)
         })
     },
+    launchToVueX(){
+     fromZooplaJS()
+    }
   },
 }
 

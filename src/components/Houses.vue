@@ -1,15 +1,14 @@
 <template>
   <div>
     <div class="house-card">
-
-      <h1 class="house-city">{{zooplaData.postTown}}</h1>
-<p class="house-short-adress">{{zooplaData.shortAdress}}</p>
-<div class="houseImg">
-  <img :src="zooplaData.imagesBig" alt="">
-</div>
-<h2 class="house-price">{{zooplaData.pricing}}</h2>
-<h3 class="house-adress-full">{{zooplaData.fullAdress}}</h3>
-<h4 class="house-description">{{zooplaData.shortDesc}}</h4>
+      <h1 class="house-city">{{ zooplaData.postTown }}</h1>
+      <p class="house-short-adress">{{ zooplaData.shortAdress }}</p>
+      <div class="houseImg">
+        <img :src="zooplaData.imagesBig" alt="" />
+      </div>
+      <h2 class="house-price">{{ zooplaData.pricing }}</h2>
+      <h3 class="house-adress-full">{{ zooplaData.fullAdress }}</h3>
+      <h4 class="house-description">{{ zooplaData.shortDesc }}</h4>
     </div>
     <div>
       <h3>Ecosystem</h3>
@@ -51,6 +50,7 @@
 </template>
 
 <script>
+
 const axios = require('axios')
 
 export default {
@@ -59,14 +59,14 @@ export default {
   },
   data() {
     return {
-      zooplaData:{
-      listing: String,
-      pricing: String,
-      imagesBig: String,
-      shortAdress: String,
-      shortDesc: String,
-      fullAdress: String,
-      postTown: String,
+      zooplaData: {
+        listing: String,
+        pricing: String,
+        imagesBig: String,
+        shortAdress: String,
+        shortDesc: String,
+        fullAdress: String,
+        postTown: String,
       },
     }
   },
@@ -84,9 +84,13 @@ export default {
           this.zooplaData.imagesBig = response.data.listing[0].image_645_430_url
           this.zooplaData.shortAdress = response.data.listing[0].street_name
           this.zooplaData.shortDesc = response.data.listing[0].short_description
-          this.zooplaData.fullAdress = response.data.listing[0].displayable_address
+          this.zooplaData.fullAdress =
+            response.data.listing[0].displayable_address
           this.zooplaData.postTown = response.data.listing[0].post_town
-          console.log('%c House Data From Zoopoli:', 'color:green; font-size: large');
+          console.log(
+            '%c House Data From Zoopoli:',
+            'color:green; font-size: large'
+          )
           console.log(
             this.listing,
             this.shortDesc,
