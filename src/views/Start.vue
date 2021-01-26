@@ -13,7 +13,7 @@
           @click="$router.push('houses')"
           >Browse All Homes</b-button
         >
-        <div>{{ zooplaData.resultCount }}+ listings</div>
+        <div>{{ startListingCount }}+ listings</div>
       </div>
       <b-button
         variant="primary"
@@ -70,10 +70,8 @@
 
 <script>
 import fromZooplaJS from '../modules/zoopla.js'
-const axios = require('axios')
 export default {
   mounted() {
-    this.getZoopolaData()
     this.launchToVueX()
   },
   data() {
@@ -92,22 +90,15 @@ export default {
     onSlideEnd() {
       this.sliding = false
     },
-    getZoopolaData() {
-      axios
-        .get(
-          'http://api.zoopla.co.uk/api/v1/property_listings.json?new_homes=yes&area=london&summarised=yes&api_key=nnc2mfhmmbngxyvgpmqy86nz'
-        )
-        .then(response => {
-          this.zooplaData.resultCount = response.data.result_count
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
     launchToVueX(){
      fromZooplaJS()
     }
   },
+  computed:{
+    startListingCount(){
+      return this.$store.state.allZooplaData.totalListing
+    }
+  }
 }
 
 /*TODO 

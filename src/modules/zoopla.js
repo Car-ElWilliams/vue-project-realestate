@@ -4,6 +4,8 @@ export default function getData() {
   let imagesBig = []
   let adresses = []
   let shortDesc = []
+  let postTown = []
+  let fullAdress = []
   const axios = require('axios')
 
   axios({
@@ -13,12 +15,14 @@ export default function getData() {
     responseType: 'application/json',
   })
     .then(function (response) {
-      console.log(response.data.listing)
+      console.log(response)
       for (let i = 0; i < response.data.listing.length; i++) {
         pricing.push(response.data.listing[i].price)
         imagesBig.push(response.data.listing[i].image_645_430_url)
         adresses.push(response.data.listing[i].street_name)
         shortDesc.push(response.data.listing[i].short_description)
+        postTown.push(response.data.listing[i].post_town)
+        fullAdress.push(response.data.listing[i].displayable_address)
       }
       console.log(shortDesc, pricing, adresses, imagesBig)
       store.commit('allListings', {
@@ -27,6 +31,8 @@ export default function getData() {
         images: imagesBig,
         adress: adresses,
         desc: shortDesc,
+        fullAdress,
+        postTown,
       })
     })
     .catch(error => {

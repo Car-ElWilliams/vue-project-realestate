@@ -50,61 +50,65 @@
 </template>
 
 <script>
-
-const axios = require('axios')
+import fromZooplaJS from '../modules/zoopla.js'
 
 export default {
-  mounted() {
-    this.getZoopolaData()
+  created() {
+    this.launchToVueX()
   },
   data() {
     return {
       zooplaData: {
-        listing: String,
-        pricing: String,
-        imagesBig: String,
-        shortAdress: String,
-        shortDesc: String,
-        fullAdress: String,
-        postTown: String,
+        listing: this.$store.state.allZooplaData.totalListing,
+        pricing: this.$store.state.allZooplaData.pricing[0],
+        imagesBig: this.$store.state.allZooplaData.imagesBig[0],
+        shortAdress: this.$store.state.allZooplaData.shortAdress[0],
+        shortDesc: this.$store.state.allZooplaData.shortDesc[0],
+        fullAdress: this.$store.state.allZooplaData.fullAdress[0],
+        postTown: this.$store.state.allZooplaData.postTown[0],
       },
     }
   },
   methods: {
-    getZoopolaData() {
-      axios
-        .get(
-          'http://api.zoopla.co.uk/api/v1/property_listings.json?area=london&api_key=nnc2mfhmmbngxyvgpmqy86nz'
-        )
-        .then(response => {
-          this.zooplaData.listing = response.data.listing[0].price
-          console.log('Full Response', response)
-          this.zooplaData.listing = response.data.listing[0]
-          this.zooplaData.pricing = response.data.listing[0].price
-          this.zooplaData.imagesBig = response.data.listing[0].image_645_430_url
-          this.zooplaData.shortAdress = response.data.listing[0].street_name
-          this.zooplaData.shortDesc = response.data.listing[0].short_description
-          this.zooplaData.fullAdress =
-            response.data.listing[0].displayable_address
-          this.zooplaData.postTown = response.data.listing[0].post_town
-          console.log(
-            '%c House Data From Zoopoli:',
-            'color:green; font-size: large'
-          )
-          console.log(
-            this.listing,
-            this.shortDesc,
-            this.pricing,
-            this.adress,
-            this.imagesBig
-          )
-        })
-        .catch(error => {
-          console.log(error)
-        })
+    launchToVueX(){
+     fromZooplaJS()
+    }
     },
-  },
 }
+  // const axios = require('axios')
+
+// getZoopolaData() {
+  //       axios
+//         .get(
+//           'http://api.zoopla.co.uk/api/v1/property_listings.json?area=london&api_key=nnc2mfhmmbngxyvgpmqy86nz'
+//         )
+//         .then(response => {
+//           this.zooplaData.listing = response.data.listing[0].price
+//           console.log('Full Response', response)
+//           this.zooplaData.listing = response.data.listing[0]
+//           this.zooplaData.pricing = response.data.listing[0].price
+//           this.zooplaData.imagesBig = response.data.listing[0].image_645_430_url
+//           this.zooplaData.shortAdress = response.data.listing[0].street_name
+//           this.zooplaData.shortDesc = response.data.listing[0].short_description
+//           this.zooplaData.fullAdress =
+//             response.data.listing[0].displayable_address
+//           this.zooplaData.postTown = response.data.listing[0].post_town
+//           console.log(
+//             '%c House Data From Zoopoli:',
+//             'color:green; font-size: large'
+//           )
+//           console.log(
+//             this.listing,
+//             this.shortDesc,
+//             this.pricing,
+//             this.adress,
+//             this.imagesBig
+//           )
+//         })
+//         .catch(error => {
+//           console.log(error)
+//         })
+//     },
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -124,3 +128,4 @@ a {
   color: #42b983;
 }
 </style>
+
