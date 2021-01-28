@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HousesSlides from '../views/HousesSlides.vue'
+import AllHouses from '../views/AllHouses.vue'
 import Start from '../views/Start.vue'
 
 
@@ -14,9 +14,9 @@ const routes = [
   },
 
   {
-    path: '/houses',
-    name: 'Houses',
-    component: HousesSlides
+    path: '/allListings',
+    name: 'AllListings',
+    component: AllHouses
   }
 ]
 

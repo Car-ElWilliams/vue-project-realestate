@@ -10,7 +10,7 @@
           variant="primary"
           v-b-tooltip.hover.top="'View all houses currently available on the market'"
           size="lg"
-          @click="$router.push('houses')"
+          @click="$router.push('allListings')"
           >Browse All Homes</b-button
         >
         <div>{{ startListingCount }}+ listings</div>

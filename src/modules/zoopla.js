@@ -8,6 +8,7 @@ export default function getData() {
   let fullAdress = []
   const axios = require('axios')
 
+  //! THIS IS ALL ZOOPLA API DATA FEEDING VUEX
   axios({
     method: 'get',
     url:
