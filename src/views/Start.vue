@@ -8,7 +8,9 @@
       <div class="all-listings-container">
         <b-button
           variant="primary"
-          v-b-tooltip.hover.top="'View all houses currently available on the market'"
+          v-b-tooltip.hover.top="
+            'View all houses currently available on the market'
+          "
           size="lg"
           @click="$router.push('allListings')"
           >Browse All Homes</b-button
@@ -16,6 +18,7 @@
         <div>{{ startListingCount }}+ listings</div>
       </div>
       <b-button
+        @click="$router.push('search')"
         variant="primary"
         v-b-tooltip.hover.top="
           'Narrow down your search by e.g. adress, post code, city'
@@ -29,7 +32,7 @@
         size="lg"
         >Get Lucky</b-button
       >
-    <p class="powered"><u>Powered by zoopla API</u></p>
+      <p class="powered"><u>Powered by zoopla API</u></p>
     </div>
 
     <div class="carousel-container">
@@ -90,15 +93,15 @@ export default {
     onSlideEnd() {
       this.sliding = false
     },
-    launchToVueX(){
-     fromZooplaJS()
-    }
+    launchToVueX() {
+      fromZooplaJS()
+    },
   },
-  computed:{
-    startListingCount(){
+  computed: {
+    startListingCount() {
       return this.$store.state.totalListing
-    }
-  }
+    },
+  },
 }
 
 /*TODO 
@@ -113,16 +116,16 @@ postcode
 </script>
 
 <style scoped>
-.start-wrapper {
-}
+/* .start-wrapper {
+} */
 .carousel-style {
   max-width: 100%;
   z-index: -1;
 }
 
-.carousel-container {
-  /* position: absolute; */
-}
+/* .carousel-container {
+   position: absolute; 
+} */
 
 .welcome-container {
   background-color: white;
@@ -141,7 +144,7 @@ postcode
   position: absolute;
   z-index: 1;
   right: 20vw;
-  left:  20vw;
+  left: 20vw;
   bottom: 0px;
 }
 </style>
