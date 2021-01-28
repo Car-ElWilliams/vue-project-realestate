@@ -41,7 +41,7 @@ export default {
   methods: {
     copyZooplaObj() {
       //Adds a new copied object to All Zoopla Data
-      for (let i = 0; i < this.$store.state.totalListing; i++) {
+      for (let i = 1; i < this.$store.state.totalListing; i++) {
         this.zooplaData.push(
           JSON.parse(
             JSON.stringify({
