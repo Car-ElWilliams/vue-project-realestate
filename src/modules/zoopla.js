@@ -11,7 +11,7 @@ export default function getData() {
   axios({
     method: 'get',
     url:
-      'http://api.zoopla.co.uk/api/v1/property_listings.json?area=london&api_key=nnc2mfhmmbngxyvgpmqy86nz',
+      'http://api.zoopla.co.uk/api/v1/property_listings.json?&area=london&page_size=100&summarised=true&api_key=nnc2mfhmmbngxyvgpmqy86nz',
     responseType: 'application/json',
   })
     .then(function (response) {
@@ -36,7 +36,7 @@ export default function getData() {
       })
     })
     .catch(error => {
-      console.log(error)
+      console.error('Error from Zoopla API:', error)
     })
 }
 
