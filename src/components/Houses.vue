@@ -1,114 +1,66 @@
 <template>
   <div>
-    <div class="house-card">
-      <h1 class="house-city">{{ zooplaData.postTown }}</h1>
-      <p class="house-short-adress">{{ zooplaData.shortAdress }}</p>
-      <div class="houseImg">
-        <img :src="zooplaData.imagesBig" alt="" />
-      </div>
-      <h2 class="house-price">{{ zooplaData.pricing }}</h2>
-      <h3 class="house-adress-full">{{ zooplaData.fullAdress }}</h3>
-      <h4 class="house-description">{{ zooplaData.shortDesc }}</h4>
-    </div>
     <div>
-      <h3>Ecosystem</h3>
-      <ul>
-        <li>
-          <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-            >vue-router</a
-          >
-        </li>
-        <li>
-          <a href="https://vuex.vuejs.org" target="_blank" rel="noopener"
-            >vuex</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://github.com/vuejs/vue-devtools#vue-devtools"
-            target="_blank"
-            rel="noopener"
-            >vue-devtools</a
-          >
-        </li>
-        <li>
-          <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-            >vue-loader</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://github.com/vuejs/awesome-vue"
-            target="_blank"
-            rel="noopener"
-            >awesome-vue</a
-          >
-        </li>
-      </ul>
+      <h1>All New Listings</h1>
+      <div class="house-card" v-for="item in zooplaData" :key="item.id">
+        <h1 class="house-city">{{ item.postTown }}</h1>
+        <p class="house-short-adress">{{ item.shortAdress }}</p>
+        <div class="houseImg">
+          <img :src="item.imagesBig" alt="" />
+        </div>
+        <h2 class="house-price">{{ item.pricing }}</h2>
+        <h3 class="house-adress-full">{{ item.fullAdress }}</h3>
+        <h4 class="house-description">{{ item.shortDesc }}</h4>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import fromZooplaJS from '../modules/zoopla.js'
+// import fromZooplaJS from '../modules/zoopla.js'
 
 export default {
   created() {
-    this.launchToVueX()
+    this.copyZooplaObj()
+    // this.launchToVueX()
   },
   data() {
     return {
-      zooplaData: {
-        listing: this.$store.state.allZooplaData.totalListing,
-        pricing: this.$store.state.allZooplaData.pricing[0],
-        imagesBig: this.$store.state.allZooplaData.imagesBig[0],
-        shortAdress: this.$store.state.allZooplaData.shortAdress[0],
-        shortDesc: this.$store.state.allZooplaData.shortDesc[0],
-        fullAdress: this.$store.state.allZooplaData.fullAdress[0],
-        postTown: this.$store.state.allZooplaData.postTown[0],
-      },
+      zooplaData: [
+        {
+          pricing: this.$store.state.allZooplaData[0].pricing[0],
+          imagesBig: this.$store.state.allZooplaData[0].imagesBig[0],
+          shortAdress: this.$store.state.allZooplaData[0].shortAdress[0],
+          shortDesc: this.$store.state.allZooplaData[0].shortDesc[0],
+          fullAdress: this.$store.state.allZooplaData[0].fullAdress[0],
+          postTown: this.$store.state.allZooplaData[0].postTown[0],
+        },
+      ],
     }
   },
   methods: {
-    launchToVueX(){
-     fromZooplaJS()
-    }
+    copyZooplaObj() {
+      //Adds a new copied object to All Zoopla Data
+      for (let i = 0; i < this.$store.state.totalListing; i++) {
+        this.zooplaData.push(
+          JSON.parse(
+            JSON.stringify({
+              pricing: this.$store.state.allZooplaData[i].pricing[0],
+              imagesBig: this.$store.state.allZooplaData[i].imagesBig[0],
+              shortAdress: this.$store.state.allZooplaData[i].shortAdress[0],
+              shortDesc: this.$store.state.allZooplaData[i].shortDesc[0],
+              fullAdress: this.$store.state.allZooplaData[i].fullAdress[0],
+              postTown: this.$store.state.allZooplaData[i].postTown[0],
+            })
+          )
+        )
+      }
     },
+    // launchToVueX(){
+    //  fromZooplaJS()
+    // }
+  },
 }
-  // const axios = require('axios')
-
-// getZoopolaData() {
-  //       axios
-//         .get(
-//           'http://api.zoopla.co.uk/api/v1/property_listings.json?area=london&api_key=nnc2mfhmmbngxyvgpmqy86nz'
-//         )
-//         .then(response => {
-//           this.zooplaData.listing = response.data.listing[0].price
-//           console.log('Full Response', response)
-//           this.zooplaData.listing = response.data.listing[0]
-//           this.zooplaData.pricing = response.data.listing[0].price
-//           this.zooplaData.imagesBig = response.data.listing[0].image_645_430_url
-//           this.zooplaData.shortAdress = response.data.listing[0].street_name
-//           this.zooplaData.shortDesc = response.data.listing[0].short_description
-//           this.zooplaData.fullAdress =
-//             response.data.listing[0].displayable_address
-//           this.zooplaData.postTown = response.data.listing[0].post_town
-//           console.log(
-//             '%c House Data From Zoopoli:',
-//             'color:green; font-size: large'
-//           )
-//           console.log(
-//             this.listing,
-//             this.shortDesc,
-//             this.pricing,
-//             this.adress,
-//             this.imagesBig
-//           )
-//         })
-//         .catch(error => {
-//           console.log(error)
-//         })
-//     },
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -128,4 +80,3 @@ a {
   color: #42b983;
 }
 </style>
-

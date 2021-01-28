@@ -96,7 +96,7 @@ export default {
   },
   computed:{
     startListingCount(){
-      return this.$store.state.allZooplaData.totalListing
+      return this.$store.state.totalListing
     }
   }
 }
