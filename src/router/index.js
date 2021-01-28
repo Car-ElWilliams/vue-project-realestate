@@ -4,7 +4,6 @@ import AllHouses from '../views/AllHouses.vue'
 import Start from '../views/Start.vue'
 import Search from '../views/SearchView.vue'
 
-
 Vue.use(VueRouter)
 
 const routes = [
@@ -17,12 +16,12 @@ const routes = [
   {
     path: '/allListings',
     name: 'AllListings',
-    component: AllHouses
+    component: AllHouses,
   },
   {
     path: '/search',
     name: 'Search',
-    component: Search
+    component: Search,
   },
 ]
 
@@ -31,6 +30,5 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 })
-
 
 export default router
