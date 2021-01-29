@@ -3,9 +3,6 @@
 ## G-KRAV
 
 ```
-    Attributinterpolering (v-bind eller dess kortform) används
-    Villkorlig rendering (v-if) används
-    v-model (och värdet som matas in) används
     Minst en komponent ska ta emot, och använda, minst en prop (via props-nyckeln)
     Webbapplikationen ska nyttja ett Web App Manifest, som ska vara genererad via Vue CLI:s PWA-plugin – webbapplikationen ska, via detta manifest, ha ett eget appnamn, en egen temafärg, och egna ikoner
     Webbapplikationen ska fungera offline, och all information, inklusive informationen som hämtats med GET-anropen, måste gå att se även när användaren är offline – använd en Service Worker för detta, som är genererad via Vue CLI:s PWA-plugin
@@ -13,6 +10,9 @@
     Webbapplikationen ska publiceras på GitHub Pages (eller liknande)
     Inlämningen ska endast bestå av ett dokument med 1) projektets Clone URL och 2) det publicerade projektets webbadress (Om din repository är privat, bjud då in användaren "jonkri" på GitHub/GitLab) (Använd inte Apple Pages-formatet)
 
+    v-model (och värdet som matas in) används DONE!
+    Villkorlig rendering (v-if) används DONE!
+    Attributinterpolering (v-bind eller dess kortform) används DONE!
     Gör minst ett webbanrop, och visa information från en eller flera webbtjänster i webbapplikationen (Visa åtminstone tio värden) DONE!
     Textinterpolering ({{ och }}) används DONE!
     Listrendering (v-for) används DONE!
@@ -26,12 +26,8 @@
 
 ```
 
-    Använd någonting annat än fetch (till exempel Axios) för att göra webbanropen -KLAR
-    Minst en beräknad egenskap (computed) används
-    Minst en bevakare (watch) används
     Datatyper ska vara specificerade för alla props
     Minst ett custom event används
-    Minst ett datavärde sparas i, uppdateras (via en mutation), och hämtas från, Vuex (Ändra inget state på något annat sätt än via mutations)
     Använd minst ett Vue Router-adressparametervärde
     Bootstrap ska anpassas via minst en Sass-variabel
     Minst en komponent använder Sass, via style-elementet, i sin .vue-fil
@@ -42,3 +38,8 @@
 ```
 
 ```
+
+    Minst ett datavärde sparas i, uppdateras (via en mutation), och hämtas från, Vuex (Ändra inget state på något annat sätt än via mutations) DONE!
+    Minst en bevakare (watch) används DONE!
+    Använd någonting annat än fetch (till exempel Axios) för att göra webbanropen DONE!
+    Minst en beräknad egenskap (computed) används DONE!

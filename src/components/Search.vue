@@ -24,7 +24,7 @@
       <label for="adress-input">Enter an adress</label>
       <b-form-input
         id="adress-input"
-        v-model="text"
+        v-model="adress"
         size="lg"
         placeholder="94 Highfield Road"
       ></b-form-input>
@@ -42,25 +42,27 @@
       <label for="max-price-input">Maximum Price Range In £</label>
       <b-form-input
         id="max-price-input"
-        v-model="text"
+        v-model="priceMax"
         size="lg"
         placeholder="Enter a maxium price"
       ></b-form-input>
-      <b-button variant="warning" size="lg">{{ submitForm }}</b-button>
+      <b-button @click="onSubmitZooplaData" variant="warning" size="lg">{{ submitForm }}</b-button>
     </b-container>
   </div>
 </template>
 
 <script>
+  const axios = require('axios')
 export default {
   data() {
     return {
       types: ['text', 'number', 'search', 'url', 'date'],
-      name: '',
+      adress: '',
       town: '',
       text: '',
       postcode: '',
       postcodeLimit: 7,
+      priceMax: '',
       submitForm: 'Enter required field',
     }
   },
@@ -73,6 +75,16 @@ export default {
     formatter(value) {
       return value.toUpperCase()
     },
+    onSubmitZooplaData(){
+      axios({
+    method: 'get',
+    url:
+      `http://api.zoopla.co.uk/api/v1/property_listings.json?api_key=nnc2mfhmmbngxyvgpmqy86nz&page_size=100&summarised=true&area=${this.town}&postcode=${this.postcode}&street=${this.adress}&maximum_price=${this.priceMax}`,
+    responseType: 'application/json',
+  }).then(function (response) {
+      console.log('From on click function', response.data)
+    }
+  )}
   },
   watch: {
     postcode: function() {
