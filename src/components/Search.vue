@@ -10,10 +10,10 @@
           aria-describedby="input-live-help input-live-feedback"
           placeholder="London"
           trim
+          size="lg  "
         ></b-form-input>
 
-        <!-- This will only be shown if the preceding input has an invalid state -->
-        <b-form-invalid-feedback id="input-live-feedback">
+        <b-form-invalid-feedback v-if="town" id="input-live-feedback">
           Enter at least 3 letters
         </b-form-invalid-feedback>
 
@@ -26,7 +26,7 @@
         id="adress-input"
         v-model="text"
         size="lg"
-        placeholder="Enter an adress"
+        placeholder="94 Highfield Road"
       ></b-form-input>
 
       <label for="postcode-input">Postcode</label>
@@ -39,7 +39,7 @@
         :formatter="formatter"
       ></b-form-input>
       <div v-if="postcode.length > 0">Characters left:{{ postcodeLimit }}</div>
-      <label for="max-price-input">Maximum Price Range</label>
+      <label for="max-price-input">Maximum Price Range In £</label>
       <b-form-input
         id="max-price-input"
         v-model="text"
@@ -75,10 +75,18 @@ export default {
     },
   },
   watch: {
-    postcode: function(newValue) {
+    postcode: function() {
       let postcode = this.postcode.toString().length
       this.postcodeLimit = 7 - postcode
-      console.log(newValue)
+    },
+    town() {
+      if (this.town.length >= 3) {
+        this.submitForm = 'Search Houses'
+      }
+      else if(this.town.length < 3){
+        this.submitForm = 'Enter required field'
+      }
+
     },
   },
 }
