@@ -37,6 +37,7 @@ export default new Vuex.Store({
         // this.state.allZooplaData[i].pricing[i].replace(',')
       }
       this.state.totalListing = listingArray.listing
+
     },
   },
   actions: {},

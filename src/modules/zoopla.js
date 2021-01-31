@@ -1,18 +1,25 @@
 import store from '../store'
-export default function getData() {
+
+export default function getData(pagecount) {
   let pricing = []
   let imagesBig = []
   let adresses = []
   let shortDesc = []
   let postTown = []
   let fullAdress = []
+  let pageCount = '1'
   const axios = require('axios')
 
+  if (pagecount !== Number) {
+    pageCount = pagecount
+    console.log(pagecount);
+
+  }
   //! THIS IS ALL ZOOPLA API DATA FEEDING VUEX
   axios({
     method: 'get',
     url:
-      'http://api.zoopla.co.uk/api/v1/property_listings.json?&area=london&page_size=100&summarised=true&api_key=nnc2mfhmmbngxyvgpmqy86nz',
+      `http://api.zoopla.co.uk/api/v1/property_listings.json?&page_number=${pageCount}&area=london&page_size=100&summarised=true&api_key=nnc2mfhmmbngxyvgpmqy86nz`,
     responseType: 'application/json',
   })
     .then(function (response) {

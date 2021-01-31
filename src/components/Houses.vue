@@ -12,12 +12,13 @@
         <h3 class="house-adress-full">{{ item.fullAdress }}</h3>
         <h4 class="house-description">{{ item.shortDesc }}</h4>
       </div>
+        <b-pagination align="f  ill" v-model="currentPage" :total-rows="rows" size="lg"></b-pagination>
     </div>
   </div>
 </template>
 
 <script>
-// import fromZooplaJS from '../modules/zoopla.js'
+import fromZooplaJS from '../modules/zoopla.js'
 
 export default {
   created() {
@@ -36,9 +37,15 @@ export default {
           postTown: this.$store.state.allZooplaData[0].postTown[0],
         },
       ],
+         rows: 100,
+        currentPage: 1
     }
   },
   methods: {
+    log(event){
+  
+      console.log(event)
+    },
     copyZooplaObj() {
       //Adds a new copied object to All Zoopla Data
       for (let i = 1; i < this.$store.state.totalListing; i++) {
@@ -56,10 +63,15 @@ export default {
         )
       }
     },
-    // launchToVueX(){
-    //  fromZooplaJS()
-    // }
+    zooplaPageNumber(){
+      fromZooplaJS(this.currentPage)
+    }
   },
+  watch:{
+    currentPage(){
+      this.zooplaPageNumber()
+    }
+  }
 }
 </script>
 
