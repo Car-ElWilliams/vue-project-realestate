@@ -5,5 +5,8 @@ module.exports = {
     },
     name: 'Real Estate Lister',
     themeColor: 'whitesmoke'
-  }
+  },
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/vue-project-realestate/'
+    : '/'
 }
