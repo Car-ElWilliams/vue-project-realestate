@@ -23,3 +23,30 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount("#app");
+
+//Checks User online status
+
+getOnlineStatus().then((isOnline) => {
+  console.log(isOnline ? 'Really online' : 'Offline')
+  if (isOnline === false) {
+    alert('You are using the site offline')
+  }
+})
+
+function getOnlineStatus() {
+  if (navigator.onLine) {
+    return fetch(location.origin, { method: 'HEAD' })
+      .then(() => true)
+      .catch(() => false)
+  }
+
+  return new Promise((resolve) => resolve(false))
+}
+
+addEventListener('offline', () => {
+  console.log('Offline')
+})
+
+addEventListener('online', () => {
+  console.log('Online')
+})
