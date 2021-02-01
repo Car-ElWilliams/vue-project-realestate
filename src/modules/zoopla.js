@@ -1,6 +1,7 @@
 import store from '../store'
 
 export default function getData(pagecount) {
+  let results
   let pricing = []
   let imagesBig = []
   let adresses = []
@@ -32,7 +33,10 @@ export default function getData(pagecount) {
         postTown.push(response.data.listing[i].post_town)
         fullAdress.push(response.data.listing[i].displayable_address)
       }
-      console.log(shortDesc, pricing, adresses, imagesBig)
+      results = response.data.result_count
+
+      console.log(shortDesc, pricing, adresses, imagesBig, results)
+
       store.commit('allListings', {
         listing: response.data.listing.length,
         price: pricing,
@@ -41,6 +45,7 @@ export default function getData(pagecount) {
         desc: shortDesc,
         fullAdress,
         postTown,
+        results,
       })
     })
     .catch(error => {

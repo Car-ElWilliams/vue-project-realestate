@@ -3,7 +3,6 @@
 ## G-KRAV
 
 ```
-    Minst en komponent ska ta emot, och använda, minst en prop (via props-nyckeln)
     Webbapplikationen ska fungera offline, och all information, inklusive informationen som hämtats med GET-anropen, måste gå att se även när användaren är offline – använd en Service Worker för detta, som är genererad via Vue CLI:s PWA-plugin
     Inlämningen ska endast bestå av ett dokument med 1) projektets Clone URL och 2) det publicerade projektets webbadress (Om din repository är privat, bjud då in användaren "jonkri" på GitHub/GitLab) (Använd inte Apple Pages-formatet)
 ```
@@ -11,6 +10,7 @@
 ### DONE (G)
 
 ```
+    Minst en komponent ska ta emot, och använda, minst en prop (via props-nyckeln) DONE!
     Webbapplikationen ska publiceras på GitHub Pages (eller liknande) DONE!
     Källkoden för projektet publiceras på GitHub (eller liknande) DONE!
     Webbapplikationen ska nyttja ett Web App Manifest, som ska vara genererad via Vue CLI:s PWA-plugin – webbapplikationen ska, via detta manifest, ha ett eget appnamn, en egen temafärg, och egna ikoner DONE!
@@ -30,8 +30,6 @@
 
 ```
 
-    Datatyper ska vara specificerade för alla props
-    Minst ett custom event används
     Använd minst ett Vue Router-adressparametervärde
     Bootstrap ska anpassas via minst en Sass-variabel
     Minst en komponent använder Sass, via style-elementet, i sin .vue-fil
@@ -43,6 +41,8 @@
 
 ```
 
+    Minst ett custom event används DONE!
+    Datatyper ska vara specificerade för alla props DONE!
     Minst ett datavärde sparas i, uppdateras (via en mutation), och hämtas från, Vuex (Ändra inget state på något annat sätt än via mutations) DONE!
     Minst en bevakare (watch) används DONE!
     Använd någonting annat än fetch (till exempel Axios) för att göra webbanropen DONE!

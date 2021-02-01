@@ -14,6 +14,8 @@ export default new Vuex.Store({
         shortDesc: [],
         fullAdress: [],
         postTown: [],
+        roundedResults: null,
+        results: null
       },
     ],
   },
@@ -36,6 +38,12 @@ export default new Vuex.Store({
         //Convert To A Locale String
         // this.state.allZooplaData[i].pricing[i].replace(',')
       }
+
+
+
+
+      this.state.allZooplaData.roundedResults = Math.round(listingArray.results / 1000) * 1000
+      this.state.allZooplaData.results = listingArray.results
       this.state.totalListing = listingArray.listing
 
     },

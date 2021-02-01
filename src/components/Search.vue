@@ -3,7 +3,8 @@
     <b-container>
       <div role="group">
         <label for="input-live">Town:</label>
-        <b-form-input
+        <input type="text " >
+        <b-form-input @keydown="$emit('log-me',{town: ['EMITT WORKING', town]})"
           id="input-live"
           v-model="town"
           :state="nameState"
@@ -72,9 +73,11 @@ export default {
     },
   },
   methods: {
+
     formatter(value) {
       return value.toUpperCase()
     },
+
     onSubmitZooplaData(){
       axios({
     method: 'get',

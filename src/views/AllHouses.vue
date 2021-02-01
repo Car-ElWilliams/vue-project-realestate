@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Houses />
+    <Houses :results="this.result"/>
   </div>
 </template>
 
@@ -13,5 +13,11 @@ export default {
   components: {
     Houses,
   },
+  data(){
+    return{
+      result: this.$store.state.allZooplaData.results
+    }
+  },
+  
 }
 </script>

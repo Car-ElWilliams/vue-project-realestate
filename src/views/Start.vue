@@ -99,7 +99,7 @@ export default {
   },
   computed: {
     startListingCount() {
-      return this.$store.state.totalListing
+      return this.$store.state.allZooplaData.roundedResults
     },
   },
 }

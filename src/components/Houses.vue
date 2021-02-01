@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h1>All New Listings</h1>
+      <h1>All {{results}} Listings</h1>
       <div class="house-card" v-for="item in zooplaData" :key="item.id">
         <h1 class="house-city">{{ item.postTown }}</h1>
         <p class="house-short-adress">{{ item.shortAdress }}</p>
@@ -39,6 +39,11 @@ export default {
       ],
          rows: 100,
         currentPage: 1
+    }
+  },
+  props:{
+    results:{
+      type: Number
     }
   },
   methods: {

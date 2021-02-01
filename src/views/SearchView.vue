@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Search />
+    <Search @log-me="logger"/>
   </div>
 </template>
 
@@ -13,5 +13,10 @@ export default {
   components: {
     Search,
   },
+  methods:{
+    logger(payload){
+      console.log(payload)
+    }
+  }
 }
 </script>
