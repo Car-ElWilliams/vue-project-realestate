@@ -3,13 +3,13 @@
 ## G-KRAV
 
 ```
-    Webbapplikationen ska fungera offline, och all information, inklusive informationen som hämtats med GET-anropen, måste gå att se även när användaren är offline – använd en Service Worker för detta, som är genererad via Vue CLI:s PWA-plugin
     Inlämningen ska endast bestå av ett dokument med 1) projektets Clone URL och 2) det publicerade projektets webbadress (Om din repository är privat, bjud då in användaren "jonkri" på GitHub/GitLab) (Använd inte Apple Pages-formatet)
 ```
 
 ### DONE (G)
 
 ```
+    Webbapplikationen ska fungera offline, och all information, inklusive informationen som hämtats med GET-anropen, måste gå att se även när användaren är offline – använd en Service Worker för detta, som är genererad via Vue CLI:s PWA-plugin DONE!
     Minst en komponent ska ta emot, och använda, minst en prop (via props-nyckeln) DONE!
     Webbapplikationen ska publiceras på GitHub Pages (eller liknande) DONE!
     Källkoden för projektet publiceras på GitHub (eller liknande) DONE!
@@ -31,7 +31,6 @@
 ```
 
     Använd minst ett Vue Router-adressparametervärde
-    Webbapplikationen ska (visuellt) indikera för användaren att användaren är offline, om användaren är (eller går) offline
     Webbapplikationen ska erbjuda en “custom install experience”
     Projektet är konfigurerat med någon sorts browserlist-konfiguration för explicit webbläsarkompabilitet
 
@@ -39,6 +38,7 @@
 
 ```
 
+    Webbapplikationen ska (visuellt) indikera för användaren att användaren är offline, om användaren är (eller går) offline DONE!
     Minst en komponent använder Sass, via style-elementet, i sin .vue-fil DONE!
     Bootstrap ska anpassas via minst en Sass-variabel DONE!
     Minst ett custom event används DONE!

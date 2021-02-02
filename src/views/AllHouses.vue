@@ -2,7 +2,7 @@
   <div class="home">
      <router-link to="/">Start</router-link>
     <router-view />
-    <h6>Current route:{{id}}</h6>
+   
     <Houses :results="this.result"/>
   </div>
 </template>
