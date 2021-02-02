@@ -9,7 +9,7 @@ import "./sw.js";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-import './styles/start.scss'
+import './styles/main.scss'
 
 Vue.config.productionTip = false
 

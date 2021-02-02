@@ -31,8 +31,6 @@
 ```
 
     Använd minst ett Vue Router-adressparametervärde
-    Bootstrap ska anpassas via minst en Sass-variabel
-    Minst en komponent använder Sass, via style-elementet, i sin .vue-fil
     Webbapplikationen ska (visuellt) indikera för användaren att användaren är offline, om användaren är (eller går) offline
     Webbapplikationen ska erbjuda en “custom install experience”
     Projektet är konfigurerat med någon sorts browserlist-konfiguration för explicit webbläsarkompabilitet
@@ -41,6 +39,8 @@
 
 ```
 
+    Minst en komponent använder Sass, via style-elementet, i sin .vue-fil DONE!
+    Bootstrap ska anpassas via minst en Sass-variabel DONE!
     Minst ett custom event används DONE!
     Datatyper ska vara specificerade för alla props DONE!
     Minst ett datavärde sparas i, uppdateras (via en mutation), och hämtas från, Vuex (Ändra inget state på något annat sätt än via mutations) DONE!

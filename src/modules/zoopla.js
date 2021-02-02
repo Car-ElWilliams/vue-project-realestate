@@ -8,13 +8,12 @@ export default function getData(pagecount) {
   let shortDesc = []
   let postTown = []
   let fullAdress = []
-  let pageCount = '1'
+  let pageCount = '2'
   const axios = require('axios')
 
   if (pagecount !== Number) {
-    pageCount = pagecount
-    console.log(pagecount);
-
+    // pageCount = pagecount
+    console.log('Curent Page:', pagecount);
   }
   //! THIS IS ALL ZOOPLA API DATA FEEDING VUEX
   axios({

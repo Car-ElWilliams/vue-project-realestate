@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+     <router-link to="/">Start</router-link>
+    <router-view />
     <Search @log-me="logger"/>
   </div>
 </template>

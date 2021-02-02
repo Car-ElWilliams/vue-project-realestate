@@ -4,7 +4,7 @@
       <div class="wrapper">
         <h1>Welcome to Houses UK</h1>
         <p>Select an option below to find your new home</p>
-      </div>
+      
       <div class="all-listings-container">
         <b-button
           variant="primary"
@@ -15,7 +15,7 @@
           @click="$router.push('allListings')"
           >Browse All Homes</b-button
         >
-        <div>{{ startListingCount }}+ listings</div>
+        <div id="listings-total">{{ startListingCount }}+ listings</div>
       </div>
       <b-button
         @click="$router.push('search')"
@@ -26,13 +26,14 @@
         size="lg"
         >Area Search</b-button
       >
-      <b-button
+      <!-- <b-button
         variant="primary"
         v-b-tooltip.hover.top="'View a random house'"
         size="lg"
         >Get Lucky</b-button
-      >
+      > -->
       <p class="powered"><u>Powered by zoopla API</u></p>
+      </div>
     </div>
 
     <div class="carousel-container">
@@ -104,28 +105,14 @@ export default {
   },
 }
 
-/*TODO 
-1. Add The Form To The Start Page. 
-2. Add input components options frtom bootstrap with the options: 
-area 	(Arbitrary area name, or postcode)
-street 
-town 	Name
-postcode  
-3.  
-*/
 </script>
 
-<style scoped>
-/* .start-wrapper {
-} */
+<style scoped lang="scss">
+
 .carousel-style {
   max-width: 100%;
   z-index: -1;
 }
-
-/* .carousel-container {
-   position: absolute; 
-} */
 
 .welcome-container {
   background-color: white;
@@ -138,6 +125,24 @@ postcode
   bottom: 10vh;
   width: 60vw;
   z-index: 1;
+  
+  .wrapper {
+    margin: 20px 10% 0px 10%; 
+    // background-color: blue;
+    width: 80%;
+    
+    h1 {
+      font-size: 54px;
+    }
+    p{
+      font-size: 20px;
+      margin-bottom: 10vh;
+    }
+    
+  }
+  #listings-total{
+    margin: 5px 0px 15px 0px; 
+  }
 }
 
 .powered {

@@ -1,9 +1,10 @@
 <template>
   <div>
+      <div id="nav">
+    </div>
     <b-container>
       <div role="group">
         <label for="input-live">Town:</label>
-        <input type="text " >
         <b-form-input @keydown="$emit('log-me',{town: ['EMITT WORKING', town]})"
           id="input-live"
           v-model="town"
