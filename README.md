@@ -29,15 +29,12 @@
 ## VG-KRAV
 
 ```
+    Projektet är konfigurerat med någon sorts browserlist-konfiguration för explicit webbläsarkompabilitet
+```
+
+```
 
     Använd minst ett Vue Router-adressparametervärde
-    Webbapplikationen ska erbjuda en “custom install experience”
-    Projektet är konfigurerat med någon sorts browserlist-konfiguration för explicit webbläsarkompabilitet
-
-```
-
-```
-
     Webbapplikationen ska (visuellt) indikera för användaren att användaren är offline, om användaren är (eller går) offline DONE!
     Minst en komponent använder Sass, via style-elementet, i sin .vue-fil DONE!
     Bootstrap ska anpassas via minst en Sass-variabel DONE!

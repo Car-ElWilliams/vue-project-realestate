@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-     <router-link to="/">Start</router-link>
+    <router-link to="/">Start</router-link>
     <router-view />
-   
-    <Houses :results="this.result"/>
+    <h6>You are viewing: {{ routerPath }}</h6>
+    <Houses :results="this.result" />
   </div>
 </template>
 
@@ -16,18 +16,17 @@ export default {
   components: {
     Houses,
   },
-  data(){
-    return{
-      result: this.$store.state.allZooplaData.results
+  data() {
+    return {
+      result: this.$store.state.allZooplaData.results,
+      routerPath: this.$router.currentRoute.path,
     }
   },
   props: {
     id: {
-      type: String
-    }
-  }
-  
+      type: String,
+    },
+  },
 }
 // console.log(this.$route.params.id)
 </script>
-

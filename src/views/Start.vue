@@ -4,35 +4,35 @@
       <div class="wrapper">
         <h1>Welcome to Houses UK</h1>
         <p>Select an option below to find your new home</p>
-      
-      <div class="all-listings-container">
+
+        <div class="all-listings-container">
+          <b-button
+            variant="primary"
+            v-b-tooltip.hover.top="
+              'View all houses currently available on the market'
+            "
+            size="lg"
+            @click="$router.push('allListings')"
+            >Browse All Homes</b-button
+          >
+          <div id="listings-total">{{ startListingCount }}+ listings</div>
+        </div>
         <b-button
+          @click="$router.push('search')"
           variant="primary"
           v-b-tooltip.hover.top="
-            'View all houses currently available on the market'
+            'Narrow down your search by e.g. adress, post code, city'
           "
           size="lg"
-          @click="$router.push('allListings')"
-          >Browse All Homes</b-button
+          >Area Search</b-button
         >
-        <div id="listings-total">{{ startListingCount }}+ listings</div>
-      </div>
-      <b-button
-        @click="$router.push('search')"
-        variant="primary"
-        v-b-tooltip.hover.top="
-          'Narrow down your search by e.g. adress, post code, city'
-        "
-        size="lg"
-        >Area Search</b-button
-      >
-      <!-- <b-button
+        <!-- <b-button
         variant="primary"
         v-b-tooltip.hover.top="'View a random house'"
         size="lg"
         >Get Lucky</b-button
       > -->
-      <p class="powered"><u>Powered by zoopla API</u></p>
+        <p class="powered"><u>Powered by zoopla API</u></p>
       </div>
     </div>
 
@@ -104,11 +104,9 @@ export default {
     },
   },
 }
-
 </script>
 
 <style scoped lang="scss">
-
 .carousel-style {
   max-width: 100%;
   z-index: -1;
@@ -125,23 +123,22 @@ export default {
   bottom: 10vh;
   width: 60vw;
   z-index: 1;
-  
+
   .wrapper {
-    margin: 20px 10% 0px 10%; 
+    margin: 20px 10% 0px 10%;
     // background-color: blue;
     width: 80%;
-    
+
     h1 {
       font-size: 54px;
     }
-    p{
+    p {
       font-size: 20px;
       margin-bottom: 10vh;
     }
-    
   }
-  #listings-total{
-    margin: 5px 0px 15px 0px; 
+  #listings-total {
+    margin: 5px 0px 15px 0px;
   }
 }
 
