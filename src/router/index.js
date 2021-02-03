@@ -17,7 +17,7 @@ const routes = [
     path: '/allListings',
     name: 'AllListings',
     component: AllHouses,
-    props: true
+    props: true,
   },
   {
     path: '/search',
@@ -33,4 +33,3 @@ const router = new VueRouter({
 })
 
 export default router
-

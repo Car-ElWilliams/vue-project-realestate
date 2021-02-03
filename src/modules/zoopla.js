@@ -13,13 +13,12 @@ export default function getData(pagecount) {
 
   if (pagecount !== Number) {
     // pageCount = pagecount
-    console.log('Curent Page:', pagecount);
+    console.log('Curent Page:', pagecount)
   }
   //! THIS IS ALL ZOOPLA API DATA FEEDING VUEX
   axios({
     method: 'get',
-    url:
-      `http://api.zoopla.co.uk/api/v1/property_listings.json?&page_number=${pageCount}&area=london&page_size=100&summarised=true&api_key=nnc2mfhmmbngxyvgpmqy86nz`,
+    url: `http://api.zoopla.co.uk/api/v1/property_listings.json?&page_number=${pageCount}&area=london&page_size=100&summarised=true&api_key=nnc2mfhmmbngxyvgpmqy86nz`,
     responseType: 'application/json',
   })
     .then(function (response) {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h1>All {{results}} Listings</h1>
+      <h1>All {{ results }} Listings</h1>
       <div class="house-card" v-for="item in zooplaData" :key="item.id">
         <h1 class="house-city">{{ item.postTown }}</h1>
         <p class="house-short-adress">{{ item.shortAdress }}</p>
@@ -12,7 +12,12 @@
         <h3 class="house-adress-full">{{ item.fullAdress }}</h3>
         <h4 class="house-description">{{ item.shortDesc }}</h4>
       </div>
-        <b-pagination align="f  ill" v-model="currentPage" :total-rows="rows" size="lg"></b-pagination>
+      <b-pagination
+        align="f  ill"
+        v-model="currentPage"
+        :total-rows="rows"
+        size="lg"
+      ></b-pagination>
     </div>
   </div>
 </template>
@@ -37,18 +42,17 @@ export default {
           postTown: this.$store.state.allZooplaData[0].postTown[0],
         },
       ],
-         rows: 100,
-        currentPage: 1
+      rows: 100,
+      currentPage: 1,
     }
   },
-  props:{
-    results:{
-      type: Number
-    }
+  props: {
+    results: {
+      type: Number,
+    },
   },
   methods: {
-    log(event){
-  
+    log(event) {
       console.log(event)
     },
     copyZooplaObj() {
@@ -68,15 +72,15 @@ export default {
         )
       }
     },
-    zooplaPageNumber(){
+    zooplaPageNumber() {
       fromZooplaJS(this.currentPage)
-    }
+    },
   },
-  watch:{
-    currentPage(){
+  watch: {
+    currentPage() {
       this.zooplaPageNumber()
-    }
-  }
+    },
+  },
 }
 </script>
 

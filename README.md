@@ -29,11 +29,11 @@
 ## VG-KRAV
 
 ```
+```
+
+```
+
     Projektet är konfigurerat med någon sorts browserlist-konfiguration för explicit webbläsarkompabilitet
-```
-
-```
-
     Använd minst ett Vue Router-adressparametervärde
     Webbapplikationen ska (visuellt) indikera för användaren att användaren är offline, om användaren är (eller går) offline DONE!
     Minst en komponent använder Sass, via style-elementet, i sin .vue-fil DONE!

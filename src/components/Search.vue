@@ -1,11 +1,11 @@
 <template>
   <div>
-      <div id="nav">
-    </div>
+    <div id="nav"></div>
     <b-container>
       <div role="group">
         <label for="input-live">Town:</label>
-        <b-form-input @keydown="$emit('log-me',{town: ['EMITT WORKING', town]})"
+        <b-form-input
+          @keydown="$emit('log-me', { town: ['EMITT WORKING', town] })"
           id="input-live"
           v-model="town"
           :state="nameState"
@@ -48,13 +48,15 @@
         size="lg"
         placeholder="Enter a maxium price"
       ></b-form-input>
-      <b-button @click="onSubmitZooplaData" variant="warning" size="lg">{{ submitForm }}</b-button>
+      <b-button @click="onSubmitZooplaData" variant="warning" size="lg">{{
+        submitForm
+      }}</b-button>
     </b-container>
   </div>
 </template>
 
 <script>
-  const axios = require('axios')
+const axios = require('axios')
 export default {
   data() {
     return {
@@ -74,21 +76,19 @@ export default {
     },
   },
   methods: {
-
     formatter(value) {
       return value.toUpperCase()
     },
 
-    onSubmitZooplaData(){
+    onSubmitZooplaData() {
       axios({
-    method: 'get',
-    url:
-      `http://api.zoopla.co.uk/api/v1/property_listings.json?api_key=nnc2mfhmmbngxyvgpmqy86nz&page_size=100&summarised=true&area=${this.town}&postcode=${this.postcode}&street=${this.adress}&maximum_price=${this.priceMax}`,
-    responseType: 'application/json',
-  }).then(function (response) {
-      console.log('From on click function', response.data)
-    }
-  )}
+        method: 'get',
+        url: `http://api.zoopla.co.uk/api/v1/property_listings.json?api_key=nnc2mfhmmbngxyvgpmqy86nz&page_size=100&summarised=true&area=${this.town}&postcode=${this.postcode}&street=${this.adress}&maximum_price=${this.priceMax}`,
+        responseType: 'application/json',
+      }).then(function(response) {
+        console.log('From on click function', response.data)
+      })
+    },
   },
   watch: {
     postcode: function() {
@@ -98,11 +98,9 @@ export default {
     town() {
       if (this.town.length >= 3) {
         this.submitForm = 'Search Houses'
-      }
-      else if(this.town.length < 3){
+      } else if (this.town.length < 3) {
         this.submitForm = 'Enter required field'
       }
-
     },
   },
 }
