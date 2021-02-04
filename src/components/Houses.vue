@@ -11,7 +11,7 @@
         <h2 class="house-price">{{ item.pricing }}</h2>
         <!-- <h3 class="house-adress-full">{{ item.fullAdress }}</h3> -->
         <div class="container">
-        <h4 class="house-description">{{ item.shortDesc }}</h4>
+          <h4 class="house-description">{{ item.shortDesc }}</h4>
         </div>
       </div>
       <b-pagination
@@ -57,7 +57,6 @@ export default {
     log(event) {
       console.log(event)
       console.log(this.$store.state.allZooplaData[0].shortDesc[0])
-      
     },
     copyZooplaObj() {
       //Adds a new copied object to All Zoopla Data
@@ -90,12 +89,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 h3 {
   margin: 40px 0 0;
 }
 
-.house-card{
+.house-card {
   border-bottom: 1px solid black;
 }
 
@@ -105,12 +103,12 @@ h3 {
   margin-bottom: 55px;
 }
 
-.house-city{
+.house-city {
   margin-top: 45px;
 }
 
-.house-description{
- display: block;
+.house-description {
+  display: block;
   display: -webkit-box;
   max-width: 100vw;
   height: 50px;
@@ -122,7 +120,7 @@ h3 {
   overflow: ellipsis;
 }
 
-img{
+img {
   margin-bottom: 15px;
 }
 </style>

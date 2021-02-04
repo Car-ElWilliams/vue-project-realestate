@@ -48,9 +48,12 @@
         size="lg"
         placeholder="Enter a maxium price"
       ></b-form-input>
-      <b-button @click="onSubmitZooplaData" variant="warning" size="lg">{{
-        submitForm
-      }}</b-button>
+      <b-button
+        @click="onSubmitZooplaData, (renderSearch = true)"
+        variant="warning"
+        size="lg"
+        >{{ submitForm }}</b-button
+      >
     </b-container>
   </div>
 </template>
@@ -68,6 +71,7 @@ export default {
       postcodeLimit: 7,
       priceMax: '',
       submitForm: 'Enter required field',
+      renderSearch: false,
     }
   },
   computed: {

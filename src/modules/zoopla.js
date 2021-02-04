@@ -33,7 +33,7 @@ export default function getData(pagecount) {
       }
       results = response.data.result_count
 
-      console.log(shortDesc, pricing, adresses, imagesBig, results)
+      console.log(shortDesc, pricing, adresses, imagesBig, results, postTown)
 
       store.commit('allListings', {
         listing: response.data.listing.length,

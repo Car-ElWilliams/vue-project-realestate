@@ -42,15 +42,13 @@ export default new Vuex.Store({
         if (listingArray.desc[i].includes('<p class="top">')) {
           listingArray.desc[i] = listingArray.desc[i].replace(/<[^>]*>/g, '')
           this.state.allZooplaData[i].shortDesc.push(listingArray.desc[i])
-        }
-        else {
+        } else {
           this.state.allZooplaData[i].shortDesc.push(listingArray.desc[i])
         }
-        if (listingArray.postTown[i] === '' || undefined || null) {
+        if (listingArray.postTown[i] === null) {
           listingArray.postTown[i] = 'City Not Defined'
           this.state.allZooplaData[i].postTown.push(listingArray.postTown[i])
-        }
-        else {
+        } else {
           this.state.allZooplaData[i].postTown.push(listingArray.postTown[i])
         }
         this.state.allZooplaData[i].imagesBig.push(listingArray.images[i])
@@ -62,7 +60,8 @@ export default new Vuex.Store({
 
       this.state.allZooplaData.roundedResults =
         Math.round(listingArray.results / 1000) * 1000
-      this.state.allZooplaData.results = listingArray.results.toString()
+      this.state.allZooplaData.results = listingArray.results
+        .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
       this.state.totalListing = listingArray.listing
     },
