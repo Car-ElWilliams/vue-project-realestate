@@ -15,6 +15,9 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 export default {
+  beforeCreate() {
+  this.$store.commit('initialiseStore');
+},
   beforeMount() {
     this.checkOnline()
   },

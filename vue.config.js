@@ -13,7 +13,7 @@ module.exports = {
             networkTimeoutSeconds: 5,
           },
           urlPattern:
-            'http://api.zoopla.co.uk/api/v1/property_listings.json?&page_number=2$&area=london&page_size=100&summarised=true&api_key=nnc2mfhmmbngxyvgpmqy86nz',
+            'https://api.zoopla.co.uk/api/v1/property_listings.json?&page_number=2$&area=london&page_size=100&summarised=true&api_key=nnc2mfhmmbngxyvgpmqy86nz',
         },
       ],
       manifestTransforms: [

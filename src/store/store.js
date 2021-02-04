@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+
   state: {
     totalListing: Number,
     allZooplaData: [
@@ -44,7 +45,18 @@ export default new Vuex.Store({
       this.state.allZooplaData.results = listingArray.results
       this.state.totalListing = listingArray.listing
     },
+    initialiseStore(state) {
+      if (localStorage.getItem('storeZooplaData')) {
+        this.replaceState(
+          Object.assign(
+            state,
+            JSON.parse(localStorage.getItem('storeZooplaData'))
+          )
+        );
+      }
+    }
   },
   actions: {},
   modules: {},
 })
+

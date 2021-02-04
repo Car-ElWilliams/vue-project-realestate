@@ -83,7 +83,7 @@ export default {
     onSubmitZooplaData() {
       axios({
         method: 'get',
-        url: `http://api.zoopla.co.uk/api/v1/property_listings.json?api_key=nnc2mfhmmbngxyvgpmqy86nz&page_size=100&summarised=true&area=${this.town}&postcode=${this.postcode}&street=${this.adress}&maximum_price=${this.priceMax}`,
+        url: `https://api.zoopla.co.uk/api/v1/property_listings.json?api_key=nnc2mfhmmbngxyvgpmqy86nz&page_size=100&summarised=true&area=${this.town}&postcode=${this.postcode}&street=${this.adress}&maximum_price=${this.priceMax}`,
         responseType: 'application/json',
       }).then(function(response) {
         console.log('From on click function', response.data)
