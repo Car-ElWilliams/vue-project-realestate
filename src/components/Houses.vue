@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <div>
       <h1>All {{ results }} Listings</h1>
       <div class="house-card" v-for="item in zooplaData" :key="item.id">
@@ -9,8 +9,10 @@
           <img :src="item.imagesBig" alt="" />
         </div>
         <h2 class="house-price">{{ item.pricing }}</h2>
-        <h3 class="house-adress-full">{{ item.fullAdress }}</h3>
+        <!-- <h3 class="house-adress-full">{{ item.fullAdress }}</h3> -->
+        <div class="container">
         <h4 class="house-description">{{ item.shortDesc }}</h4>
+        </div>
       </div>
       <b-pagination
         align="f  ill"
@@ -48,12 +50,14 @@ export default {
   },
   props: {
     results: {
-      type: Number,
+      type: String,
     },
   },
   methods: {
     log(event) {
       console.log(event)
+      console.log(this.$store.state.allZooplaData[0].shortDesc[0])
+      
     },
     copyZooplaObj() {
       //Adds a new copied object to All Zoopla Data
@@ -86,18 +90,39 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 h3 {
   margin: 40px 0 0;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.house-card{
+  border-bottom: 1px solid black;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+.container {
+  width: 50vw;
+  margin-top: 15px;
+  margin-bottom: 55px;
 }
-a {
-  color: #42b983;
+
+.house-city{
+  margin-top: 45px;
+}
+
+.house-description{
+ display: block;
+  display: -webkit-box;
+  max-width: 100vw;
+  height: 50px;
+  margin: 0, auto;
+  line-height: 1;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow: ellipsis;
+}
+
+img{
+  margin-bottom: 15px;
 }
 </style>

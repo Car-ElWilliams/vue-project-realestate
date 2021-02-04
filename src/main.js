@@ -22,7 +22,6 @@ new Vue({
 
 // Subscribe to store state update after mutation 
 store.subscribe((mutation, state) => {
-  // Store the state object as a JSON string
   localStorage.setItem('storeZooplaData', JSON.stringify(state));
 });
 

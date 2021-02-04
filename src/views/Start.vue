@@ -75,6 +75,7 @@
 <script>
 import fromZooplaJS from '../modules/zoopla.js'
 export default {
+ 
   mounted() {
     this.launchToVueX()
   },

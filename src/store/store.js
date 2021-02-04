@@ -4,7 +4,6 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-
   state: {
     totalListing: Number,
     allZooplaData: [
@@ -30,19 +29,41 @@ export default new Vuex.Store({
         )
       }
       for (let i = 0; i < listingArray.listing; i++) {
-        this.state.allZooplaData[i].pricing.push(`£${listingArray.price[i]}`)
+        if (listingArray.price[i] === 0) {
+          listingArray.price[i] = 'Price Given On Request'
+          this.state.allZooplaData[i].pricing.push(listingArray.price[i])
+        } else {
+          this.state.allZooplaData[i].pricing.push(
+            `£${listingArray.price[i]
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`
+          )
+        }
+        if (listingArray.desc[i].includes('<p class="top">')) {
+          listingArray.desc[i] = listingArray.desc[i].replace(/<[^>]*>/g, '')
+          this.state.allZooplaData[i].shortDesc.push(listingArray.desc[i])
+        }
+        else {
+          this.state.allZooplaData[i].shortDesc.push(listingArray.desc[i])
+        }
+        if (listingArray.postTown[i] === '' || undefined || null) {
+          listingArray.postTown[i] = 'City Not Defined'
+          this.state.allZooplaData[i].postTown.push(listingArray.postTown[i])
+        }
+        else {
+          this.state.allZooplaData[i].postTown.push(listingArray.postTown[i])
+        }
         this.state.allZooplaData[i].imagesBig.push(listingArray.images[i])
         this.state.allZooplaData[i].shortAdress.push(listingArray.adress[i])
-        this.state.allZooplaData[i].shortDesc.push(listingArray.desc[i])
         this.state.allZooplaData[i].fullAdress.push(listingArray.fullAdress[i])
-        this.state.allZooplaData[i].postTown.push(listingArray.postTown[i])
         //Convert To A Locale String
         // this.state.allZooplaData[i].pricing[i].replace(',')
       }
 
       this.state.allZooplaData.roundedResults =
         Math.round(listingArray.results / 1000) * 1000
-      this.state.allZooplaData.results = listingArray.results
+      this.state.allZooplaData.results = listingArray.results.toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
       this.state.totalListing = listingArray.listing
     },
     initialiseStore(state) {
@@ -52,11 +73,10 @@ export default new Vuex.Store({
             state,
             JSON.parse(localStorage.getItem('storeZooplaData'))
           )
-        );
+        )
       }
-    }
+    },
   },
   actions: {},
   modules: {},
 })
-
