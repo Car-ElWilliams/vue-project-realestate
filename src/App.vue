@@ -29,8 +29,7 @@ export default {
   methods: {
     secondCheck() {
       if (this.error === true || navigator.onLine === false) {
-        let interval = window.setInterval(
-          function() {
+        let interval = window.setInterval(function() {
           if (navigator.onLine === false) {
             this.error === true
             console.log('Checking status...')

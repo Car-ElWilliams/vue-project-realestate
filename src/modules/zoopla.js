@@ -21,6 +21,7 @@ export default function getData(pagecount) {
     url: `https://api.zoopla.co.uk/api/v1/property_listings.json?&page_number=${pageCount}&area=london&page_size=100&summarised=false&api_key=nnc2mfhmmbngxyvgpmqy86nz`,
     responseType: 'application/json',
   })
+    // eslint-disable-next-line prettier/prettier
     .then(function (response) {
       console.log(response.data)
       for (let i = 0; i < response.data.listing.length; i++) {
