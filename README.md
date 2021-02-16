@@ -1,3 +1,6 @@
+# UPDATE!  
+Now available offline!
+
 # INSTRUCTIONS
 
 1. Clone prjoect
